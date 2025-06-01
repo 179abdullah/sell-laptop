@@ -350,6 +350,8 @@ html {
 /* testmio card */
 .testimonials_inner {
     padding: 50px 0;
+    background-color: #152535;
+    margin: 40px 0;
 }
 
 .testi_heading {
@@ -368,7 +370,7 @@ html {
 }
 
 .testimo_card {
-    background: #06111c;
+    background: linear-gradient(to top, #003566, #000000, #001d3d);
     padding: 36px 24px;
     border: 3px solid #ffffff40;
 }
