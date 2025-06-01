@@ -281,6 +281,10 @@
             z-index: 1;
             right: 18px;
         }
+
+        slider-buttons button[style*="opacity: 0.2"] {
+            pointer-events: none;
+        }
     </style>
 
     <!-- Slick JS -->
@@ -293,28 +297,52 @@
 
 
 
-
         const slider = document.getElementById("slider");
         const slides = document.querySelectorAll(".product_image");
         const totalSlides = slides.length;
 
         let currentIndex = 0;
 
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // Remove 'active' class from all slides
+            slides.forEach(slide => slide.classList.remove("active"));
+
+            // Add 'active' class to the current slide
+            slides[currentIndex].classList.add("active");
+        }
+
         document.getElementById("nextBtn").addEventListener("click", () => {
             if (currentIndex < totalSlides - 1) {
                 currentIndex++;
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateSlider();
             }
         });
 
         document.getElementById("prevBtn").addEventListener("click", () => {
             if (currentIndex > 0) {
                 currentIndex--;
-                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateSlider();
             }
         });
 
+        // Initialize on load
+        updateSlider();
 
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // Remove 'active' class from all slides
+            slides.forEach(slide => slide.classList.remove("active"));
+
+            // Add 'active' class to the current slide
+            slides[currentIndex].classList.add("active");
+
+            // Update button opacity
+            document.getElementById("prevBtn").style.opacity = currentIndex === 0 ? "0.5" : "1";
+            document.getElementById("nextBtn").style.opacity = currentIndex === totalSlides - 1 ? "0.5" : "1";
+        }
 
 
 
@@ -331,11 +359,11 @@
                 const processor = this.dataset.processor;
 
                 const message = `Hello! I'm interested in this laptop:%0A
-                    Brand: ${brand}%0A
-                    Model: ${model}%0A
-                    RAM: ${ram}%0A
-                    Storage: ${storage}%0A
-                    Processor: ${processor}`;
+    Brand: ${brand}%0A
+    Model: ${model}%0A
+    RAM: ${ram}%0A
+    Storage: ${storage}%0A
+    Processor: ${processor}`;
 
                 const phoneNumber = "+919994940520"; // Pakistan number, 92 is country code
                 const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
@@ -345,24 +373,24 @@
         });
 
 
-        // Disable Right Click
-        document.addEventListener("contextmenu", e => e.preventDefault());
+        // // Disable Right Click
+        // document.addEventListener("contextmenu", e => e.preventDefault());
 
-        // Disable Dev Tools Shortcuts
-        document.addEventListener("keydown", function (e) {
-            // F12
-            if (e.keyCode === 123) {
-                e.preventDefault();
-            }
-            // Ctrl+Shift+I/J/C/U
-            if (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) {
-                e.preventDefault();
-            }
-            // Ctrl+U
-            if (e.ctrlKey && e.key === "u") {
-                e.preventDefault();
-            }
-        });
+        // // Disable Dev Tools Shortcuts
+        // document.addEventListener("keydown", function (e) {
+        // // F12
+        // if (e.keyCode === 123) {
+        // e.preventDefault();
+        // }
+        // // Ctrl+Shift+I/J/C/U
+        // if (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) {
+        // e.preventDefault();
+        // }
+        // // Ctrl+U
+        // if (e.ctrlKey && e.key === "u") {
+        // e.preventDefault();
+        // }
+        // });
     </script>
 
 </body>
