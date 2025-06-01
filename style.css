@@ -108,8 +108,9 @@ html {
 }
 
 .product_card {
-    background-color: #06111C;
+    background: linear-gradient(to top, #4a1515, #001d3d, #50db2d);
     border: 3px solid #ffffff40;
+    box-shadow: 0px 0px 10px 2px #fff;
 }
 
 .product_image {
