@@ -344,7 +344,38 @@
             document.getElementById("nextBtn").style.opacity = currentIndex === totalSlides - 1 ? "0.5" : "1";
         }
 
+        let startX = 0;
+        let isDragging = false;
 
+        slider.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        slider.addEventListener("touchmove", (e) => {
+            if (!isDragging) return;
+            const currentX = e.touches[0].clientX;
+            const diff = startX - currentX;
+
+            // Optional: Prevent horizontal scroll
+            if (Math.abs(diff) > 10) e.preventDefault();
+        });
+
+        slider.addEventListener("touchend", (e) => {
+            isDragging = false;
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+
+            if (diff > 50 && currentIndex < totalSlides - 1) {
+                // Swiped left – next slide
+                currentIndex++;
+                updateSlider();
+            } else if (diff < -50 && currentIndex > 0) {
+                // Swiped right – prev slide
+                currentIndex--;
+                updateSlider();
+            }
+        });
 
         const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
 
@@ -374,23 +405,23 @@
 
 
         // // Disable Right Click
-        // document.addEventListener("contextmenu", e => e.preventDefault());
+        document.addEventListener("contextmenu", e => e.preventDefault());
 
-        // // Disable Dev Tools Shortcuts
-        // document.addEventListener("keydown", function (e) {
-        // // F12
-        // if (e.keyCode === 123) {
-        // e.preventDefault();
-        // }
-        // // Ctrl+Shift+I/J/C/U
-        // if (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) {
-        // e.preventDefault();
-        // }
-        // // Ctrl+U
-        // if (e.ctrlKey && e.key === "u") {
-        // e.preventDefault();
-        // }
-        // });
+        // Disable Dev Tools Shortcuts
+        document.addEventListener("keydown", function (e) {
+        // F12
+        if (e.keyCode === 123) {
+        e.preventDefault();
+        }
+        // Ctrl+Shift+I/J/C/U
+        if (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) {
+        e.preventDefault();
+        }
+        // Ctrl+U
+        if (e.ctrlKey && e.key === "u") {
+        e.preventDefault();
+        }
+        });
     </script>
 
 </body>
