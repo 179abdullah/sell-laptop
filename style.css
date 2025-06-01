@@ -307,7 +307,7 @@ html {
 .buy_col {
     text-align: center;
     padding: 24px 24px;
-    background-color: #06111C;
+    background: linear-gradient(to top, #003566, #000000, #001d3d);
     border: 3px solid #ffffff40;
 
 }
@@ -382,6 +382,9 @@ html {
 }
 
 @media only screen and (max-width:768px) {
+    .testimonials_inner {
+    margin: 20px 0;
+}
     .testi_heading {
         font-size: 30px;
         padding-bottom: 30px;
