@@ -8,88 +8,64 @@
     <link rel="stylesheet" href="style.css">
     <title>Laptop Sell</title>
 </head>
+<style>
+    .slider-container {
+        overflow: hidden;
+        position: relative;
+        border: 1px solid #ccc;
+    }
+
+    .product_media {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .product_image {
+        min-width: 100%;
+    }
+
+    .product_image img {
+        width: 100%;
+        display: block;
+    }
+
+    .slider-buttons {
+        margin-top: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        top: -162px;
+    }
+
+    .slider-buttons button {
+        background: none;
+        border: none;
+        margin: 0 5px;
+        cursor: pointer;
+        width: 34px;
+    }
+</style>
 
 <body>
-    <nav>
-        <div class="nav_inner">
-            <div class="container">
-                <div class="nav_main">
-                    <div class="logo"><img src="logo.png" alt="logo"></div>
-                    <div class="nav_links">
-                        <ul>
-                            <li><a href="#product_sec">Products</a></li>
-                            <li><a href="#testimo_sec">Testimonials</a></li>
-                            <li><a href="#footer_sec">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- banner -->
-    <banner class="banner_sec">
-        <div class="banner_inner">
-            <div class="container-1">
-                <div class="banner_main">
-                    <div class="banner_Content" data-aos="fade-right">
-                        <div class="ba_title">
-                            <h2>Find Your Perfect <span class="text_color"> Pre-Owned Laptop</span></h2>
-                        </div>
-                        <div class="ba_des">
-                            <p>Quality Second-Hand Laptops at Unbeatable Prices
-                            </p>
-                        </div>
-                        <div class="ba_btn">
-                            <a href="#product_sec" class="btn_glow">Find Your Laptop Today</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </banner>
-    <!-- laptop product -->
-    <div class="product_inner" id="product_sec">
-        <div class="container">
-            <div class="product_heading">
-                <h2 class="text_color">Products</h2>
-            </div>
-            <div class="product_main">
-<!--                 <div class="product_card">
-                    <div class="product_image"><img src="dell.jpg" alt="laptop"></div>
-                    <div class="product_content">
-                        <p class="brand"><strong>Brand:</strong> Dell</p>
-                        <p class="model"><strong>Model:</strong> Latitude 5500,</p>
-                        <p class="ram"><strong>RAM:</strong> 8GB</p>
-                        <p class="storage"><strong>Storage:</strong> 256GB SSD</p>
-                        <p class="processor"><strong>Processor:</strong> Intel Core i5</p>
-                    </div>
-                    <div class="price">
-                        <p>Rs: 30,000</p>
-                    </div>
-                    <div class="order_button"><a href="#" class="btn_glow whatsapp-btn" data-brand="Dell"
-                            data-model="Latitude 5500" data-ram="8GB" data-storage="256GB SSD"
-                            data-processor="Intel Core i5">Enquire Now
-                            Button</a></div>
 
-                </div> -->
-<!--                 <div class="product_card" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="product_image"><img src="apple.jpeg" alt="laptop"></div>
-                    <div class="product_content">
-                        <p class="brand"><strong>Brand:</strong> Apple</p>
-                        <p class="model"><strong>Model:</strong> MacBook Pro 13</p>
-                        <p class="ram"><strong>RAM:</strong> 16GB</p>
-                        <p class="storage"><strong>Storage:</strong> 512GB SSD</p>
-                        <p class="processor"><strong>Processor:</strong> Apple M1</p>
+    <!-- laptop product -->
+    <div class="product_inner product_slider" id="product_sec">
+        <div class="container">
+            <div class="product_main">
+                <div class="product_card">
+                    <div class="slider-container">
+                        <div class="product_media" id="slider">
+                            <div class="product_image"><img src="hp-2.jpg" alt="laptop"></div>
+                            <div class="product_image"><img src="hp-2.jpg" alt="laptop"></div>
+                            <div class="product_image"><img src="hp-2.jpg" alt="laptop"></div>
+                            <div class="product_image"><img src="hp-2.jpg" alt="laptop"></div>
+                        </div>
                     </div>
-                    <div class="price">
-                        <p>Rs: 1,30,000</p>
+                    <div class="slider-buttons">
+                        <button id="prevBtn"><img src="prev-arrow.png" alt=""></button>
+                        <button id="nextBtn"><img src="next-arrow.png" alt=""></button>
                     </div>
-                    <div class="order_button"><a href="#" class="btn_glow whatsapp-btn" data-brand="Apple"
-                            data-model="MacBook Pro 13" data-ram="16GB" data-storage="512GB SSD"
-                            data-processor="Apple M1">Enquire Now Button</a></div>
-                </div> -->
-                <div class="product_card" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="product_image"><img src="hp-2.jpg" alt="laptop"></div>
                     <div class="product_content">
                         <p class="brand"><strong>Brand:</strong> HP</p>
                         <p class="model"><strong>Model:</strong> HP 15 FC0298AU</p>
@@ -102,28 +78,8 @@
                     </div>
                     <div class="order_button"><a href="#" class="btn_glow whatsapp-btn" data-brand="HP"
                             data-model="HP 15 FC0298AU" data-ram="16GB" data-storage="512GB SSD"
-                            data-processor="AMD Ryzen™ 5 7430U">Enquire Now
-                            Button</a></div>
-
+                            data-processor="AMD Ryzen™ 5 7430U">Grab The Deal Like Now</a></div>
                 </div>
-<!--                 <div class="product_card" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="product_image"><img src="apple.jpeg" alt="laptop"></div>
-                    <div class="product_content">
-                        <p class="brand"><strong>Brand:</strong> Apple</p>
-                        <p class="model"><strong>Model:</strong> MacBook Pro 13"</p>
-                        <p class="ram"><strong>RAM:</strong> 16GB</p>
-                        <p class="storage"><strong>Storage:</strong> 512GB SSD</p>
-                        <p class="processor"><strong>Processor:</strong> Apple M1</p>
-                    </div>
-                    <div class="price">
-                        <p>Rs: 1,30,000</p>
-                    </div>
-
-                    <div class="order_button"><a href="#" class="btn_glow whatsapp-btn" data-brand="Apple"
-                            data-model="MacBook Pro 13" data-ram="16GB" data-storage="512GB SSD"
-                            data-processor="Apple M1">Enquire Now Button</a></div>
-
-                </div> -->
             </div>
         </div>
     </div>
@@ -327,11 +283,41 @@
         }
     </style>
 
+    <!-- Slick JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
+
     <script>
+
+
+
+
+        const slider = document.getElementById("slider");
+        const slides = document.querySelectorAll(".product_image");
+        const totalSlides = slides.length;
+
+        let currentIndex = 0;
+
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+        });
+
+        document.getElementById("prevBtn").addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+        });
+
+
+
+
+
         const whatsappButtons = document.querySelectorAll('.whatsapp-btn');
 
         whatsappButtons.forEach(button => {
@@ -359,7 +345,7 @@
         });
 
 
-        // // Disable Right Click
+        // Disable Right Click
         document.addEventListener("contextmenu", e => e.preventDefault());
 
         // Disable Dev Tools Shortcuts
@@ -378,6 +364,7 @@
             }
         });
     </script>
+
 </body>
 
 </html>
